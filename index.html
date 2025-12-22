@@ -1,58 +1,84 @@
-<hr>
-<div class="app">
-<input
-  id="adminLoginPin"
-  type="password"
-  placeholder="Admin-PIN"
->
-<button onclick="unlockAdmin()">Lås upp admin</button>
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HJALMAR – Tvättstugebokning</title>
 
-<p id="adminLoginStatus"></p>
-<hr>
-<div id="adminPanel" style="display:none;">
-<h2>Admin</h2>
+  <!-- ✅ VIKTIGT: relativ sökväg för GitHub Pages -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
 
-<input id="adminAddress" placeholder="Adress (t.ex. Storgatan 12)">
-<input id="adminPin" type="password" placeholder="Admin-PIN">
-<button onclick="createHouse()">Skapa fastighet</button>
+<body>
 
-<p id="adminStatus"></p>
+  <div class="app">
 
-<h3>Hyresgäster</h3>
-<input id="tenantName" placeholder="Hyresgästens namn">
-<input id="tenantPin" type="password" placeholder="PIN (4 siffror)">
-<button onclick="addTenant()">Lägg till hyresgäst</button>
-<ul id="tenantList"></ul>
+    <input
+      id="adminLoginPin"
+      type="password"
+      placeholder="Admin-PIN"
+    />
+    <button onclick="unlockAdmin()">Lås upp admin</button>
 
+    <p id="adminLoginStatus"></p>
 
-<h1>🧺 HJALMAR</h1>
-<div class="card">
-<p>Boka tvättid</p>
+    <hr>
 
-<input id="name" placeholder="Ditt namn"><br><br>
-<input type="date" id="date"><br><br>
+    <div id="adminPanel" style="display:none;">
+      <h2>Admin</h2>
 
-<select id="time">
-  <option value="07:30-12:00">07:30 – 12:00</option>
-  <option value="12:00-17:00">12:00 – 17:00</option>
-  <option value="17:00-22:00">17:00 – 22:00</option>
-</select>
-<div>
-  <input
-  id="pin"
-  type="password"
-  inputmode="numeric"
-  maxlength="4"
-  placeholder="PIN">
+      <input id="adminAddress" placeholder="Adress (t.ex. Storgatan 12)">
+      <input id="adminPin" type="password" placeholder="Admin-PIN">
+      <button onclick="createHouse()">Skapa fastighet</button>
 
+      <p id="adminStatus"></p>
 
-<button onclick="book()">Boka</button>
+      <h3>Hyresgäster</h3>
+      <input id="tenantName" placeholder="Hyresgästens namn">
+      <input id="tenantPin" type="password" placeholder="PIN (4 siffror)">
+      <button onclick="addTenant()">Lägg till hyresgäst</button>
+      <ul id="tenantList"></ul>
+    </div>
 
-</div>
+    <h1>🧺 HJALMAR</h1>
 
-<div class="card">
+    <div class="card">
+      <p>Boka tvättid</p>
 
-<p id="status"></p>
-<h3>Bokade tider</h3>
-<ul id="bookings"></ul>
-</div>
+      <input id="name" placeholder="Ditt namn"><br><br>
+      <input type="date" id="date"><br><br>
+
+      <select id="time">
+        <option value="07:30-12:00">07:30 – 12:00</option>
+        <option value="12:00-17:00">12:00 – 17:00</option>
+        <option value="17:00-22:00">17:00 – 22:00</option>
+      </select>
+
+      <br><br>
+
+      <input
+        id="pin"
+        type="password"
+        inputmode="numeric"
+        maxlength="4"
+        placeholder="PIN">
+
+      <br><br>
+
+      <button onclick="book()">Boka</button>
+    </div>
+
+    <div class="card">
+      <p id="status"></p>
+      <h3>Bokade tider</h3>
+      <ul id="bookings"></ul>
+    </div>
+
+  </div>
+
+  <!-- ✅ VIKTIGT: JS som module + relativ sökväg -->
+  <script type="module" src="./script.js"></script>
+
+</body>
+</html>
+
