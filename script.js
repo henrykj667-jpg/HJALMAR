@@ -25,6 +25,11 @@ window.unlockAdmin = function () {
 };
 
 window.createHouse = async function () {
+ const companyName = document
+  .getElementById("companyName")
+  .value
+  .trim();
+ 
   const address = document.getElementById("adminAddress").value.trim();
   const pin = document.getElementById("adminPin").value.trim();
 
@@ -36,7 +41,12 @@ window.createHouse = async function () {
 
   const { data, error } = await supabase
     .from("houses")
-    .insert([{ address, admin_pin: pin }])
+    .insert([{
+  company_name: companyName || null,
+  address,
+  admin_pin: pin
+}])
+
     .select()
     .single();
 
